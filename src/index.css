@@ -36,13 +36,20 @@ All colors MUST be HSL.
     --input: 220 13% 91%;
     --ring: 158 54% 48%;
 
-    /* Premium gradients */
-    --gradient-hero: linear-gradient(135deg, 158 54% 48%, 158 54% 40%);
-    --gradient-subtle: linear-gradient(180deg, 0 0% 100%, 220 13% 98%);
+    /* Apple-style gradients */
+    --gradient-hero: linear-gradient(135deg, 0 0% 98%, 220 13% 95%);
+    --gradient-apple: linear-gradient(180deg, 0 0% 100%, 220 13% 98%);
+    --gradient-glass: linear-gradient(135deg, 0 0% 100% / 0.25, 0 0% 100% / 0.1);
+    --gradient-premium: linear-gradient(135deg, 158 54% 48%, 220 13% 65%);
     
-    /* Premium shadows */
-    --shadow-premium: 0 10px 40px -12px hsl(158 54% 48% / 0.15);
-    --shadow-card: 0 4px 16px -4px hsl(220 13% 18% / 0.08);
+    /* Apple-style shadows */
+    --shadow-premium: 0 25px 50px -12px hsl(220 13% 18% / 0.25);
+    --shadow-card: 0 10px 25px -5px hsl(220 13% 18% / 0.1);
+    --shadow-glass: 0 8px 32px hsl(220 13% 18% / 0.12);
+    --shadow-button: 0 4px 14px hsl(158 54% 48% / 0.4);
+    
+    /* Apple-style blur */
+    --blur-glass: 20px;
 
     --radius: 0.5rem;
 

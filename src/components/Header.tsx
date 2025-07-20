@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, ChevronDown } from "lucide-react";
 
 const Header = () => {
   return (
@@ -16,14 +22,51 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
-              How it works
-            </a>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
+                Sections
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-48">
+                <DropdownMenuItem asChild>
+                  <a href="#hero" className="w-full cursor-pointer">
+                    Home
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="#trust" className="w-full cursor-pointer">
+                    Trust
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="#about" className="w-full cursor-pointer">
+                    About Us
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="#pricing" className="w-full cursor-pointer">
+                    Pricing
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="#faq" className="w-full cursor-pointer">
+                    FAQ
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="#careers" className="w-full cursor-pointer">
+                    Careers
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="#articles" className="w-full cursor-pointer">
+                    Articles
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
               Pricing
-            </a>
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
-              About
             </a>
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
               Contact

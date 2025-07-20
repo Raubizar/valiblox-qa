@@ -5,7 +5,7 @@ import qaReportHero from "@/assets/qa-report-hero.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-apple flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-gradient-apple flex items-center overflow-hidden">
       {/* Apple-style background blur effects */}
       <div className="absolute inset-0 bg-gradient-hero opacity-60" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />

@@ -48,7 +48,7 @@ const TrustSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="trust" className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         {/* Trust badges */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">

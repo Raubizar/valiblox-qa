@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-background">
+    <footer id="contact" className="bg-foreground text-background">
       <div className="container mx-auto px-6">
         {/* Main footer content */}
         <div className="grid lg:grid-cols-4 gap-8 py-16">

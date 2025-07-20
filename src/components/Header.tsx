@@ -5,6 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Menu, ChevronDown } from "lucide-react";
 
 const Header = () => {
@@ -75,6 +76,7 @@ const Header = () => {
 
           {/* CTA */}
           <div className="flex items-center space-x-4">
+            <ThemeToggle />
             <Button variant="outline" className="hidden sm:flex">
               Login
             </Button>

@@ -2,60 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, ArrowRight, BookOpen, Zap, Target } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { featuredArticle, articles } from "@/data/articles";
 
 const ArticlesSection = () => {
-  const featuredArticle = {
-    title: "The Hidden Cost of Manual QA in AEC Projects",
-    excerpt: "A comprehensive analysis of how manual quality assurance processes are impacting project timelines, budgets, and team morale across the architecture, engineering, and construction industry.",
-    author: "Sarah Chen",
-    date: "Dec 15, 2024",
-    readTime: "8 min read",
-    category: "Industry Insights",
-    featured: true
-  };
-
-  const articles = [
-    {
-      title: "Machine Learning in Construction QA: What's Next?",
-      excerpt: "Exploring the latest advances in AI-powered quality assurance and their potential impact on construction project delivery.",
-      author: "Michael Rodriguez",
-      date: "Dec 12, 2024",
-      readTime: "6 min read",
-      category: "Technology"
-    },
-    {
-      title: "5 Signs Your QA Process Needs Automation",
-      excerpt: "Key indicators that your manual quality assurance workflow is holding back your team's potential.",
-      author: "Emma Thompson",
-      date: "Dec 8, 2024", 
-      readTime: "4 min read",
-      category: "Best Practices"
-    },
-    {
-      title: "RIBA Stage 4: Common Validation Challenges",
-      excerpt: "Understanding the most frequent issues found in pre-construction deliverables and how to prevent them.",
-      author: "James Wilson",
-      date: "Dec 5, 2024",
-      readTime: "7 min read",
-      category: "Process"
-    },
-    {
-      title: "Building Information Modeling: Quality at Scale", 
-      excerpt: "How modern BIM workflows can integrate automated QA for better project outcomes.",
-      author: "Lisa Park",
-      date: "Dec 1, 2024",
-      readTime: "5 min read",
-      category: "BIM"
-    },
-    {
-      title: "Case Study: 40% Faster Project Delivery with Automated QA",
-      excerpt: "Real results from a leading architecture firm that transformed their quality assurance process.",
-      author: "David Kim",
-      date: "Nov 28, 2024",
-      readTime: "9 min read",
-      category: "Case Study"
-    }
-  ];
+  const navigate = useNavigate();
 
   const categories = [
     { name: "All Articles", icon: BookOpen, count: 24 },
@@ -139,7 +90,11 @@ const ArticlesSection = () => {
             </div>
             
             <div className="flex justify-center lg:justify-end">
-              <Button size="lg" className="bg-gradient-premium shadow-button hover:shadow-premium transition-all duration-300">
+              <Button 
+                size="lg" 
+                className="bg-gradient-premium shadow-button hover:shadow-premium transition-all duration-300"
+                onClick={() => navigate(`/article/${featuredArticle.id}`)}
+              >
                 Read Article
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -153,6 +108,7 @@ const ArticlesSection = () => {
             <Card 
               key={index}
               className="p-6 bg-gradient-glass backdrop-blur-glass border border-white/10 shadow-glass hover:shadow-premium transition-all duration-300 group cursor-pointer"
+              onClick={() => navigate(`/article/${article.id}`)}
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">

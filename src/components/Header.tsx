@@ -24,43 +24,49 @@ const Header = () => {
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
-                Sections
-                <ChevronDown className="ml-1 h-4 w-4" />
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
+                  Sections
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-48">
+              <DropdownMenuContent 
+                align="start" 
+                className="w-48 bg-background/95 backdrop-blur-md border border-border/50 shadow-lg z-50"
+                sideOffset={8}
+              >
                 <DropdownMenuItem asChild>
-                  <a href="#hero" className="w-full cursor-pointer">
+                  <a href="#hero" className="w-full cursor-pointer hover:bg-muted/50 transition-colors">
                     Home
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a href="#trust" className="w-full cursor-pointer">
+                  <a href="#trust" className="w-full cursor-pointer hover:bg-muted/50 transition-colors">
                     Trust
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a href="#about" className="w-full cursor-pointer">
+                  <a href="#about" className="w-full cursor-pointer hover:bg-muted/50 transition-colors">
                     About Us
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a href="#pricing" className="w-full cursor-pointer">
+                  <a href="#pricing" className="w-full cursor-pointer hover:bg-muted/50 transition-colors">
                     Pricing
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a href="#faq" className="w-full cursor-pointer">
+                  <a href="#faq" className="w-full cursor-pointer hover:bg-muted/50 transition-colors">
                     FAQ
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a href="#careers" className="w-full cursor-pointer">
+                  <a href="#careers" className="w-full cursor-pointer hover:bg-muted/50 transition-colors">
                     Careers
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a href="#articles" className="w-full cursor-pointer">
+                  <a href="#articles" className="w-full cursor-pointer hover:bg-muted/50 transition-colors">
                     Articles
                   </a>
                 </DropdownMenuItem>

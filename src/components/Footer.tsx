@@ -33,11 +33,11 @@ const Footer = () => {
           <div className="space-y-6">
             <h3 className="text-lg font-semibold text-background">Services</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-background/70 hover:text-background transition-colors">Drawing Validation</a></li>
-              <li><a href="#" className="text-background/70 hover:text-background transition-colors">Model QA</a></li>
-              <li><a href="#" className="text-background/70 hover:text-background transition-colors">Specification Review</a></li>
-              <li><a href="#" className="text-background/70 hover:text-background transition-colors">Clash Detection</a></li>
-              <li><a href="#" className="text-background/70 hover:text-background transition-colors">Custom Validation</a></li>
+              <li><a href="/report/drawing-validation" className="text-background/70 hover:text-background transition-colors">Drawing Validation</a></li>
+              <li><a href="/report/model-qa" className="text-background/70 hover:text-background transition-colors">Model QA</a></li>
+              <li><a href="/report/specification-review" className="text-background/70 hover:text-background transition-colors">Specification Review</a></li>
+              <li><a href="/report/clash-detection" className="text-background/70 hover:text-background transition-colors">Clash Detection</a></li>
+              <li><a href="/report/custom-validation" className="text-background/70 hover:text-background transition-colors">Custom Validation</a></li>
             </ul>
           </div>
 

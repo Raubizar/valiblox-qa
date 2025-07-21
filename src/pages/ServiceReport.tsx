@@ -1,9 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, AlertTriangle, XCircle, Download, RefreshCw } from "lucide-react";
+import { ArrowLeft, CheckCircle2, AlertTriangle, XCircle, Download, RefreshCw, TrendingUp, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, Area, AreaChart } from "recharts";
 
 const services = {
   "drawing-validation": {
@@ -73,6 +74,26 @@ const mockReportData = {
       location: "Level 3, Room 301",
       severity: "high"
     }
+  ],
+  trendsData: [
+    { date: "Jan 15", passed: 1140, warnings: 45, failed: 12, total: 1197 },
+    { date: "Jan 16", passed: 1156, warnings: 48, failed: 11, total: 1215 },
+    { date: "Jan 17", passed: 1168, warnings: 50, failed: 10, total: 1228 },
+    { date: "Jan 18", passed: 1175, warnings: 53, failed: 8, total: 1236 },
+    { date: "Jan 19", passed: 1182, warnings: 51, failed: 9, total: 1242 },
+    { date: "Jan 20", passed: 1186, warnings: 52, failed: 9, total: 1247 }
+  ],
+  issuesByCategory: [
+    { name: "Geometry", value: 35, color: "#ef4444" },
+    { name: "Standards", value: 15, color: "#f59e0b" },
+    { name: "Materials", value: 8, color: "#eab308" },
+    { name: "Coordination", value: 3, color: "#84cc16" }
+  ],
+  performanceByLevel: [
+    { level: "Level 1", passed: 298, warnings: 12, failed: 3 },
+    { level: "Level 2", passed: 285, warnings: 15, failed: 2 },
+    { level: "Level 3", passed: 292, warnings: 10, failed: 1 },
+    { level: "Level 4", passed: 311, warnings: 15, failed: 3 }
   ]
 };
 
@@ -207,6 +228,192 @@ export default function ServiceReport() {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Charts Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              {/* Trends Over Time - Line Chart */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <TrendingUp className="h-5 w-5" />
+                    Quality Trends (Last 6 Days)
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <LineChart data={mockReportData.trendsData}>
+                      <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                      <XAxis 
+                        dataKey="date" 
+                        className="text-xs fill-muted-foreground" 
+                        tick={{ fontSize: 12 }}
+                      />
+                      <YAxis 
+                        className="text-xs fill-muted-foreground" 
+                        tick={{ fontSize: 12 }}
+                      />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'hsl(var(--background))', 
+                          border: '1px solid hsl(var(--border))',
+                          borderRadius: '8px'
+                        }}
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="passed" 
+                        stroke="#22c55e" 
+                        strokeWidth={2}
+                        name="Passed"
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="warnings" 
+                        stroke="#f59e0b" 
+                        strokeWidth={2}
+                        name="Warnings"
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="failed" 
+                        stroke="#ef4444" 
+                        strokeWidth={2}
+                        name="Failed"
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+
+              {/* Issues by Category - Pie Chart */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <BarChart3 className="h-5 w-5" />
+                    Issues by Category
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <PieChart>
+                      <Pie
+                        data={mockReportData.issuesByCategory}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={100}
+                        paddingAngle={5}
+                        dataKey="value"
+                      >
+                        {mockReportData.issuesByCategory.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'hsl(var(--background))', 
+                          border: '1px solid hsl(var(--border))',
+                          borderRadius: '8px'
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div className="flex flex-wrap gap-4 mt-4 justify-center">
+                    {mockReportData.issuesByCategory.map((entry, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div 
+                          className="w-3 h-3 rounded-full" 
+                          style={{ backgroundColor: entry.color }}
+                        />
+                        <span className="text-sm text-muted-foreground">
+                          {entry.name} ({entry.value})
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Performance by Level - Bar Chart */}
+            <Card className="mb-8">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <BarChart3 className="h-5 w-5" />
+                  Performance by Building Level
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={350}>
+                  <BarChart data={mockReportData.performanceByLevel} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                    <XAxis 
+                      dataKey="level" 
+                      className="text-xs fill-muted-foreground" 
+                      tick={{ fontSize: 12 }}
+                    />
+                    <YAxis 
+                      className="text-xs fill-muted-foreground" 
+                      tick={{ fontSize: 12 }}
+                    />
+                    <Tooltip 
+                      contentStyle={{ 
+                        backgroundColor: 'hsl(var(--background))', 
+                        border: '1px solid hsl(var(--border))',
+                        borderRadius: '8px'
+                      }}
+                    />
+                    <Bar dataKey="passed" stackId="a" fill="#22c55e" name="Passed" />
+                    <Bar dataKey="warnings" stackId="a" fill="#f59e0b" name="Warnings" />
+                    <Bar dataKey="failed" stackId="a" fill="#ef4444" name="Failed" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            {/* Success Rate Trend - Area Chart */}
+            <Card className="mb-8">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <TrendingUp className="h-5 w-5" />
+                  Success Rate Trend
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <AreaChart data={mockReportData.trendsData}>
+                    <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                    <XAxis 
+                      dataKey="date" 
+                      className="text-xs fill-muted-foreground" 
+                      tick={{ fontSize: 12 }}
+                    />
+                    <YAxis 
+                      domain={[85, 100]}
+                      className="text-xs fill-muted-foreground" 
+                      tick={{ fontSize: 12 }}
+                      tickFormatter={(value) => `${value}%`}
+                    />
+                    <Tooltip 
+                      contentStyle={{ 
+                        backgroundColor: 'hsl(var(--background))', 
+                        border: '1px solid hsl(var(--border))',
+                        borderRadius: '8px'
+                      }}
+                      formatter={(value, name) => [`${Math.round((value as number / mockReportData.totalChecks) * 100)}%`, 'Success Rate']}
+                    />
+                    <Area 
+                      type="monotone" 
+                      dataKey="passed" 
+                      stroke="#22c55e" 
+                      fill="#22c55e" 
+                      fillOpacity={0.3}
+                      name="Success Rate"
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
 
             {/* Issues List */}
             <Card>

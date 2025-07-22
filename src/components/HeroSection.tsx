@@ -52,7 +52,7 @@ const HeroSection = () => {
                 <Download className="mr-2 h-5 w-5" />
                 Download Sample Report
               </Button>
-              <Button variant="outline" size="lg" className="bg-gradient-glass backdrop-blur-glass border-white/20 hover:bg-white/10 shadow-glass transition-all duration-300">
+              <Button variant="outline" size="lg" className="bg-gradient-glass backdrop-blur-glass border-white/20 hover:bg-white/10 shadow-glass transition-all duration-300 text-foreground hover:text-foreground">
                 <Rocket className="mr-2 h-5 w-5" />
                 Submit Your Project
               </Button>

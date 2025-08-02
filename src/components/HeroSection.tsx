@@ -48,7 +48,7 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
-              <Button size="lg" className="bg-gradient-premium border-0 shadow-button hover:shadow-premium transition-all duration-300 text-white font-medium">
+              <Button size="lg" className="bg-gradient-premium border-0 shadow-button hover:shadow-premium transition-all duration-300 text-primary-foreground font-medium">
                 <Download className="mr-2 h-5 w-5" />
                 Download Sample Report
               </Button>

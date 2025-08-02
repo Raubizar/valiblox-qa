@@ -1,43 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Users, ArrowRight, Briefcase, Coffee, Heart } from "lucide-react";
+import { Users, ArrowRight, Briefcase, Coffee, Heart } from "lucide-react";
 
 const CareersSection = () => {
-  const openPositions = [
-    {
-      title: "Senior QA Engineer",
-      department: "Engineering",
-      location: "Remote / London",
-      type: "Full-time",
-      description: "Lead the development of our next-generation QA algorithms and validation systems.",
-      tags: ["Python", "Machine Learning", "AEC Industry"]
-    },
-    {
-      title: "AEC Industry Specialist",
-      department: "Product",
-      location: "Remote / Amsterdam",
-      type: "Full-time", 
-      description: "Shape our product roadmap with deep AEC industry knowledge and client insights.",
-      tags: ["BIM", "Construction", "Product Strategy"]
-    },
-    {
-      title: "Frontend Developer",
-      department: "Engineering",
-      location: "Remote",
-      type: "Full-time",
-      description: "Build beautiful, intuitive interfaces for our QA dashboard and reporting tools.",
-      tags: ["React", "TypeScript", "Design Systems"]
-    },
-    {
-      title: "Customer Success Manager",
-      department: "Customer Success",
-      location: "Remote / Berlin",
-      type: "Full-time",
-      description: "Help design teams succeed with our platform and drive adoption across organizations.",
-      tags: ["Client Relations", "AEC Knowledge", "Growth"]
-    }
-  ];
 
   const benefits = [
     { icon: Coffee, title: "Flexible Work", description: "Remote-first with optional office access" },
@@ -128,82 +94,19 @@ const CareersSection = () => {
           </div>
         </Card>
 
-        {/* Open Positions */}
-        <div className="space-y-8">
-          <div className="text-center">
-            <h3 className="text-3xl font-light text-foreground mb-4">
-              Open <span className="font-medium">Positions</span>
-            </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Ready to make an impact? Check out our current openings
-            </p>
-          </div>
-
-          <div className="grid gap-6">
-            {openPositions.map((position, index) => (
-              <Card 
-                key={index}
-                className="p-6 bg-gradient-glass backdrop-blur-glass border border-white/10 shadow-glass hover:shadow-premium transition-all duration-300 group"
-              >
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                  <div className="space-y-4 flex-1">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <h4 className="text-xl font-medium text-foreground group-hover:text-primary transition-colors">
-                        {position.title}
-                      </h4>
-                      <Badge variant="secondary" className="bg-primary/10 text-primary border-0">
-                        {position.department}
-                      </Badge>
-                    </div>
-                    
-                    <p className="text-muted-foreground">{position.description}</p>
-                    
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <MapPin className="h-4 w-4" />
-                        {position.location}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-4 w-4" />
-                        {position.type}
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {position.tags.map((tag, tagIndex) => (
-                        <Badge 
-                          key={tagIndex}
-                          variant="outline" 
-                          className="bg-gradient-glass backdrop-blur-glass border-white/20 text-xs"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <Button className="lg:ml-6 bg-gradient-premium shadow-button hover:shadow-premium transition-all duration-300">
-                    Apply Now
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA */}
+        {/* Apply Now CTA */}
         <div className="text-center mt-16">
           <Card className="inline-block p-8 bg-gradient-glass backdrop-blur-glass border border-white/10 shadow-premium">
             <div className="space-y-4">
-              <h3 className="text-xl font-medium text-foreground">
-                Don't see a perfect match?
+              <h3 className="text-2xl font-light text-foreground">
+                Ready to join our team?
               </h3>
               <p className="text-muted-foreground">
-                We're always looking for exceptional talent. Send us your details and we'll keep you in mind for future opportunities.
+                We're always looking for exceptional talent. Send us your application and let's build the future of QA together.
               </p>
-              <Button variant="outline" className="bg-gradient-glass backdrop-blur-glass border-white/20">
-                Send General Application
+              <Button className="bg-gradient-premium shadow-button hover:shadow-premium transition-all duration-300">
+                Apply Now
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </Card>

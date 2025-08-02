@@ -20,7 +20,7 @@ const HeroSection = () => {
                 <span className="text-sm font-medium text-foreground/80">Trusted by 500+ Design Teams</span>
               </div>
               
-              <h1 className="text-6xl lg:text-7xl font-light leading-[0.9] tracking-tight text-foreground">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight tracking-tight text-foreground">
                 Independent QA Validation of{" "}
                 <span className="font-medium bg-gradient-premium bg-clip-text text-transparent">
                   Data Center Design
@@ -52,7 +52,7 @@ const HeroSection = () => {
                 <Download className="mr-2 h-5 w-5" />
                 Download Sample Report
               </Button>
-              <Button variant="outline" size="lg" className="bg-gradient-glass backdrop-blur-glass border-white/20 hover:bg-white/10 shadow-glass transition-all duration-300">
+              <Button variant="outline" size="lg" className="bg-white/90 backdrop-blur-glass border-gray-200 text-gray-900 hover:bg-white hover:text-gray-900 shadow-glass transition-all duration-300">
                 <Rocket className="mr-2 h-5 w-5" />
                 Submit Your Project
               </Button>

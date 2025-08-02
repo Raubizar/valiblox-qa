@@ -21,11 +21,11 @@ const HeroSection = () => {
               </div>
               
               <h1 className="text-6xl lg:text-7xl font-light leading-[0.9] tracking-tight text-foreground">
-                Project deliverables{" "}
+                Independent QA Validation of{" "}
                 <span className="font-medium bg-gradient-premium bg-clip-text text-transparent">
-                  fully validated
+                  Data Center Design
                 </span>{" "}
-                in 48 hours
+                Deliverables in 48 Hours
               </h1>
               
               <p className="text-2xl text-muted-foreground leading-relaxed font-light">
